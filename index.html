@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exam Home</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --ink: #172033;
+      --muted: #667085;
+      --surface: #ffffff;
+      --line: #dce4f2;
+      --brand: #0a6c78;
+      --brand-2: #2667ff;
+      --bg: #eef3fb;
+      --radius: 16px;
+      --shadow: 0 14px 38px rgba(10, 23, 47, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: 'Anek Bangla', sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(1000px 480px at -10% -15%, #c8e6ee 0%, transparent 62%),
+        radial-gradient(900px 450px at 110% -8%, #d9e3ff 0%, transparent 64%),
+        var(--bg);
+    }
+
+    .shell {
+      width: min(1100px, 100%);
+      margin: 0 auto;
+      padding: 18px 12px 24px;
+    }
+
+    .hero {
+      background: linear-gradient(125deg, #0b6b77, #0f8a91 45%, #2667ff);
+      border-radius: 18px;
+      padding: 20px 16px;
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(1.3rem, 3.8vw, 2rem);
+      line-height: 1.22;
+      letter-spacing: 0.2px;
+    }
+
+    .hero p {
+      margin: 8px 0 0;
+      opacity: 0.95;
+      font-size: 0.98rem;
+    }
+
+    .section-title {
+      margin: 18px 0 10px;
+      font-size: 1.06rem;
+      color: #1d2d48;
+      font-weight: 700;
+    }
+
+    .grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: 1fr;
+    }
+
+    .exam-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 8px 22px rgba(13, 28, 56, 0.08);
+      padding: 14px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .exam-head {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .chip {
+      background: #e7f3ff;
+      color: #104f9f;
+      border: 1px solid #c4dcff;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    .exam-card h2 {
+      margin: 0;
+      font-size: 1.06rem;
+      line-height: 1.35;
+    }
+
+    .exam-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .btn {
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      padding: 10px 16px;
+      background: linear-gradient(120deg, var(--brand), var(--brand-2));
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .empty {
+      border: 1px dashed #b8c6dd;
+      background: #f8fbff;
+      color: #50627f;
+      border-radius: 14px;
+      padding: 16px;
+      font-size: 0.95rem;
+    }
+
+    .footer-note {
+      margin-top: 14px;
+      font-size: 0.84rem;
+      color: #5f708c;
+    }
+
+    @media (min-width: 720px) {
+      .shell {
+        padding: 28px 20px 34px;
+      }
+
+      .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 980px) {
+      .grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <h1>Exam Home</h1>
+      <p>সব প্রশ্ন সেট এখানে দেখাবে। যেকোনো পরীক্ষায় ক্লিক করে সরাসরি পরীক্ষা দিন।</p>
+    </header>
+
+    <section>
+      <h2 class="section-title">Available Exams</h2>
+      <div id="exam-grid" class="grid"></div>
+      <p class="footer-note">নতুন প্রশ্ন ফাইল যোগ করলে assets/exam-list.js ফাইলে নাম যোগ করুন।</p>
+    </section>
+  </main>
+
+  <script src="assets/exam-list.js"></script>
+  <script>
+    (function renderExamCards() {
+      const grid = document.getElementById('exam-grid');
+      const list = Array.isArray(window.examPages) ? window.examPages : [];
+
+      if (!list.length) {
+        grid.innerHTML = '<div class="empty">কোনো পরীক্ষা পাওয়া যায়নি।</div>';
+        return;
+      }
+
+      grid.innerHTML = list
+        .map((exam) => {
+          const title = exam.title || 'Untitled Exam';
+          const description = exam.description || 'No description';
+          const subject = exam.subject || 'General';
+          const file = exam.file || '#';
+
+          return `
+            <article class="exam-card">
+              <div class="exam-head">
+                <span class="chip">${subject}</span>
+              </div>
+              <h2>${title}</h2>
+              <p>${description}</p>
+              <div class="actions">
+                <a class="btn" href="${file}">Start Exam</a>
+              </div>
+            </article>
+          `;
+        })
+        .join('');
+    })();
+  </script>
+</body>
+</html>

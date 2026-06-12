@@ -1,0 +1,30 @@
+# OS / file explorer
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor settings
+.vscode/
+.idea/
+
+# Python virtual envs
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Node / Vercel local artifacts
+node_modules/
+.vercel/
+dist/
+build/
+
+# Logs and temp files
+*.log
+*.tmp
+
+# Local source/derived PDF artifacts (not needed for deploy)
+*.pdf
+pdf_pages/
+pdf_text.txt
+pdf_text_pdftotext.txt
