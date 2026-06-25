@@ -287,3 +287,154 @@ body {
     width: 260px;
   }
 }
+
+/* ════════════════════════════════════════
+   Submit overlay & loader
+════════════════════════════════════════ */
+.submit-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.25s ease;
+}
+
+.submit-overlay.fade-out {
+  animation: fadeOut 0.32s ease forwards;
+}
+
+.submit-loader {
+  text-align: center;
+}
+
+.loader-ring {
+  width: 58px;
+  height: 58px;
+  border: 5px solid #e5e9f2;
+  border-top-color: var(--brand);
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
+  margin: 0 auto 14px;
+}
+
+.loader-panda {
+  font-size: 3rem;
+  display: block;
+  animation: pandaWiggle 0.55s ease-in-out infinite alternate;
+  margin-bottom: 10px;
+}
+
+.loader-text {
+  color: var(--muted);
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* ════════════════════════════════════════
+   Panda result widget
+════════════════════════════════════════ */
+.panda-wrap {
+  text-align: center;
+  padding: 8px 0 4px;
+}
+
+.panda-emoji {
+  font-size: 4.8rem;
+  display: inline-block;
+  line-height: 1;
+}
+
+.panda-emoji.happy {
+  animation: pandaJump 0.72s ease-in-out infinite;
+}
+
+.panda-emoji.sad {
+  animation: pandaSad 2.2s ease-in-out infinite;
+}
+
+.panda-msg {
+  font-size: 1.06rem;
+  font-weight: 700;
+  margin: 6px 0 0;
+}
+
+.panda-msg.happy-msg { color: #0a7e4a; }
+.panda-msg.sad-msg   { color: #9e3535; }
+
+/* ════════════════════════════════════════
+   Confetti
+════════════════════════════════════════ */
+.confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 500;
+  overflow: hidden;
+}
+
+.confetti-piece {
+  position: absolute;
+  top: -14px;
+  animation: confettiFall linear forwards;
+}
+
+/* ════════════════════════════════════════
+   Result screen entrance
+════════════════════════════════════════ */
+.result-animate-in {
+  animation: fadeInUp 0.4s ease;
+}
+
+/* ════════════════════════════════════════
+   Keyframes
+════════════════════════════════════════ */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+@keyframes pandaWiggle {
+  from { transform: rotate(-10deg) scale(1);    }
+  to   { transform: rotate(10deg)  scale(1.12); }
+}
+
+@keyframes pandaJump {
+  0%   { transform: translateY(0)     rotate(0deg)  scale(1);    }
+  28%  { transform: translateY(-26px) rotate(-6deg) scale(1.04); }
+  50%  { transform: translateY(-40px) rotate(0deg)  scale(1.08); }
+  72%  { transform: translateY(-26px) rotate(6deg)  scale(1.04); }
+  100% { transform: translateY(0)     rotate(0deg)  scale(1);    }
+}
+
+@keyframes pandaSad {
+  0%, 100% { transform: translateY(0)   rotate(-3deg); }
+  50%       { transform: translateY(7px) rotate(3deg);  }
+}
+
+@keyframes confettiFall {
+  0%   { transform: translateY(0)      rotate(0deg);   opacity: 1; }
+  80%  {                                               opacity: 1; }
+  100% { transform: translateY(105vh)  rotate(720deg); opacity: 0; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
