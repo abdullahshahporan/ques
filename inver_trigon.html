@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>উচ্চতর গণিত: বিপরীত ত্রিকোণমিতি MCQ</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
+
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <link rel="stylesheet" href="assets/quiz-style.css" />
+</head>
+<body>
+  <main class="shell">
+    <section class="card">
+      <header class="hero">
+        <h1>উচ্চতর গণিত ২য় পত্র: বিপরীত ত্রিকোণমিতিক ফাংশন</h1>
+        <p>PDF থেকে নেওয়া প্রশ্ন ও উত্তর | ২৫টি MCQ | ২৫ মিনিট</p>
+        <p style="margin-top:10px;">
+          <a href="index.html" style="display:inline-block; text-decoration:none; color:#ffffff; border:1px solid rgba(255,255,255,0.7); border-radius:10px; padding:6px 12px; font-weight:600;">Home</a>
+        </p>
+      </header>
+
+      <div id="start-screen" class="content">
+        <div class="panel">
+          <h2 style="margin:0 0 8px; font-size:1.2rem;">Model Test শুরু করুন</h2>
+          <p class="muted" style="margin:0 0 12px;">মোবাইল-ফ্রেন্ডলি টেস্ট ইন্টারফেস, সাবমিটের পর সাথে সাথে সঠিক-ভুল উত্তর দেখাবে।</p>
+          <button class="btn" type="button" onclick="window.quizApp.startQuiz()">Start Quiz</button>
+        </div>
+      </div>
+
+      <div id="status-bar" class="content status-bar hidden">
+        <div class="timer">সময়: <span id="time">25:00</span></div>
+        <div class="progress"><span id="progress-fill"></span></div>
+      </div>
+
+      <div id="quiz-screen" class="content hidden">
+        <form id="quiz-form">
+          <div id="questions-container"></div>
+          <div class="submit-wrap">
+            <button class="btn secondary" type="button" onclick="window.quizApp.submitQuiz(false)">Submit Quiz</button>
+          </div>
+        </form>
+      </div>
+
+      <div id="result-screen" class="content hidden">
+        <div class="result-box">
+          <div class="score">স্কোর: <span id="score">0</span> / 25</div>
+          <p id="result-message" class="muted" style="margin:8px 0 0;"></p>
+        </div>
+        <div id="review-container"></div>
+        <div class="result-action">
+          <button class="btn" type="button" onclick="location.reload()">আবার দাও</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/quiz-engine.js"></script>
+  <script>
+    const questions = [
+      { q: "$\\sin(\\cot^{-1}(\\tan(\\cos^{-1}\\frac{3}{4}))) = ?$", opts: ["$\\frac{3}{4}$", "$\\frac{4}{3}$", "$\\frac{5}{4}$", "$\\frac{3}{\\sqrt{7}}$"], ans: 0 },
+      { q: "$n$ একটি পূর্ণ সংখ্যা হলে $\\cos 3\\theta = \\frac{1}{2}$ সমীকরণের সাধারণ সমাধান কোনটি?", opts: ["$(6n-1)\\frac{\\pi}{9}$", "$\\frac{2n\\pi}{3}+\\frac{\\pi}{3}$", "$\\frac{2n\\pi}{3}\\pm\\frac{\\pi}{9}$", "$(2n+1)\\frac{\\pi}{6}$"], ans: 2 },
+      { q: "$\\sec x = \\sec(x+\\pi)$ এর সাধারণ সমাধান কোনটি?", opts: ["$(2n+1)\\frac{\\pi}{2}$", "$(4n+1)\\frac{\\pi}{2}$", "$n\\pi+\\frac{\\pi}{4}$", "$n\\pi+\\frac{3\\pi}{4}$"], ans: 0 },
+      { q: "$\\sin^{-1}\\left(\\frac{2}{\\sqrt{5}}\\right) + \\tan^{-1}x = \\frac{\\pi}{4}$ হলে $x$ এর মান কত?", opts: ["$\\frac{1}{3}$", "$-\\frac{1}{3}$", "$\\frac{1}{\\sqrt{3}}$", "$-\\frac{1}{\\sqrt{3}}$"], ans: 1 },
+      { q: "$\\cos^{-1}\\left(-\\frac{1}{2}\\right)$ এর মুখ্যমান কত?", opts: ["$\\frac{\\pi}{2}$", "$-\\frac{2\\pi}{3}$", "$\\frac{\\pi}{3}$", "$\\frac{2\\pi}{3}$"], ans: 3 },
+      { q: "$\\sin^{2}\\left(\\cos^{-1}\\frac{1}{2}\\right) - \\cos^{2}\\left(\\sin^{-1}\\frac{\\sqrt{3}}{2}\\right)$ এর মান কত?", opts: ["-1", "$-\\frac{1}{2}$", "$\\frac{1}{2}$", "1"], ans: 2 },
+      { q: "$-\\pi \\le x \\le \\pi$ ব্যবধিতে $\\sin x = -\\frac{1}{2}$ সমীকরণের সমাধান কোনটি?", opts: ["$-\\frac{\\pi}{6}, -\\frac{5\\pi}{6}$", "$-\\frac{\\pi}{6}, \\frac{\\pi}{6}$", "$-\\frac{5\\pi}{6}, \\frac{\\pi}{6}$", "$\\frac{\\pi}{6}, \\frac{5\\pi}{6}$"], ans: 0 },
+      { q: "$\\csc^{2}(\\sec^{-1}\\sqrt{5})$ এর মান কত?", opts: ["$\\frac{5}{4}$", "$\\frac{4}{5}$", "$\\frac{\\sqrt{5}}{2}$", "$\\frac{2}{\\sqrt{5}}$"], ans: 0 },
+      { q: "$\\cos 2\\theta = -1$ হলে $\\theta$ এর সাধারণ মান কোনটি?", opts: ["$(2n+1)\\frac{\\pi}{2}$", "$(2n+1)\\pi$", "$(4n-1)\\frac{\\pi}{2}$", "$(4n+1)\\frac{\\pi}{2}$"], ans: 0 },
+      { q: "$\\tan^{-1}\\left(\\frac{5}{4}\\right) + \\cot^{-1}\\left(\\frac{5}{4}\\right)$ এর মান কত?", opts: ["0", "$\\pi$", "$\\frac{\\pi}{2}$", "$\\tan^{-1}\\frac{9}{40}$"], ans: 2 },
+      { q: "$\\cot^{-1}p = \\csc^{-1}\\frac{3}{2}$ হলে $p = ?$", opts: ["$\\frac{2}{\\sqrt{5}}$", "$\\frac{\\sqrt{5}}{3}$", "$\\frac{3}{\\sqrt{5}}$", "$\\frac{\\sqrt{5}}{2}$"], ans: 3 },
+      { q: "$\\tan 3\\theta = 1$ সমীকরণের সমাধান কোনটি?", opts: ["$\\frac{n\\pi}{3}+\\frac{\\pi}{12}$", "$\\frac{n\\pi}{3}+\\frac{\\pi}{6}$", "$\\frac{3n\\pi}{12}$", "$n\\pi$"], ans: 0 },
+      { q: "$\\cos \\theta + \\sin \\theta = \\sqrt{2}$ এর সাধারণ সমাধান কোনটি?", opts: ["$2n\\pi$", "$(2n+1)\\pi$", "$2n\\pi+\\frac{\\pi}{4}$", "$(2n-1)\\pi$"], ans: 2 },
+      { q: "$\\tan(\\cos^{-1}x) = \\sin(\\tan^{-1}2)$ হলে $x$ এর মান কত?", opts: ["$\\frac{\\sqrt{5}}{3}$", "$\\frac{\\sqrt{3}}{2}$", "$\\frac{1}{\\sqrt{3}}$", "$\\frac{2}{\\sqrt{5}}$"], ans: 0 },
+      { q: "$\\arctan\\{\\sin(\\arccos\\frac{\\sqrt{2}}{\\sqrt{3}})\\}$ এর মান কত?", opts: ["$\\frac{\\pi}{2}$", "$\\frac{\\pi}{3}$", "$\\frac{\\pi}{4}$", "$\\frac{\\pi}{6}$"], ans: 3 },
+      { q: "$\\csc \\theta + \\cot \\theta = \\sqrt{3}$ হলে, $\\theta$ এর মান কত? $(0 < \\theta < 2\\pi)$", opts: ["$\\frac{\\pi}{2}$", "$\\frac{\\pi}{4}$", "$\\frac{\\pi}{3}$", "$\\frac{\\pi}{6}$"], ans: 2 },
+      { q: "$\\cos(\\cot^{-1}2)$ এর মান কত?", opts: ["$\\frac{1}{2}$", "$\\frac{2}{\\sqrt{5}}$", "$\\frac{\\sqrt{5}}{2}$", "$\\frac{1}{\\sqrt{5}}$"], ans: 1 },
+      { q: "$\\tan^{-1}2 + \\tan^{-1}3$ এর মান কত?", opts: ["$-\\frac{\\pi}{4}$", "$\\frac{\\pi}{4}$", "$\\frac{3\\pi}{4}$", "$\\frac{5\\pi}{4}$"], ans: 2 },
+      { q: "$2 \\sin^{-1}x = \\sin^{-1}y$ সমীকরণে $x = \\frac{\\sqrt{3}}{2}$ হলে $y$ এর মান কত?", opts: ["$\\frac{1}{2}$", "$\\frac{1}{\\sqrt{2}}$", "$\\frac{\\sqrt{3}}{2}$", "1"], ans: 2 },
+      { q: "$x = \\sin(\\cos^{-1}y)$ হলে, $x^{2} + y^{2}$ এর মান কত হবে?", opts: ["$\\pi$", "1", "-1", "0"], ans: 1 },
+      { q: "$\\tan^{2}\\left(\\cos^{-1}\\frac{\\sqrt{3}}{2}\\right)$ এর মান কত?", opts: ["$\\frac{\\sqrt{3}}{2}$", "$\\frac{2}{\\sqrt{3}}$", "$\\frac{1}{\\sqrt{3}}$", "$\\frac{1}{3}$"], ans: 3 },
+      { q: "$\\sin \\theta = \\frac{\\sqrt{3}}{2}$ হলে $\\theta$ এর সাধারণ মান কত?", opts: ["$n\\pi+(-1)^{n}\\frac{\\pi}{6}$", "$2n\\pi+(-1)^{n}\\frac{\\pi}{6}$", "$n\\pi+(-1)^{n}\\frac{\\pi}{3}$", "$2n\\pi+(-1)^{n}\\frac{\\pi}{3}$"], ans: 2 },
+      { q: "$f(x) = \\csc(\\cot^{-1}x)$ হলে $f(2)$ এর মান কত?", opts: ["$\\frac{1}{\\sqrt{5}}$", "1", "$\\sqrt{5}$", "3"], ans: 2 },
+      { q: "$\\cot^{-1}3 = ?$", opts: ["$\\sin^{-1}\\frac{3}{\\sqrt{10}}$", "$\\cos^{-1}\\frac{1}{\\sqrt{10}}$", "$\\frac{1}{2}\\tan^{-1}\\frac{3}{5}$", "$\\frac{1}{2}\\sin^{-1}\\frac{3}{5}$"], ans: 3 },
+      { q: "$\\tan^{-1}\\frac{1}{\\sqrt{3}} + \\tan^{-1}x = \\frac{\\pi}{2}$ হলে $x = ?$", opts: ["$\\frac{1}{\\sqrt{3}}$", "$-\\frac{1}{\\sqrt{3}}$", "$\\sqrt{3}$", "$-\\sqrt{3}$"], ans: 2 }
+    ];
+
+    window.quizApp = createQuizApp({
+      questions: questions,
+      timeMinutes: 25
+    });
+  </script>
+</body>
+</html>

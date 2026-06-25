@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>উচ্চতর গণিত: বহুপদী ও দ্বিঘাত সমীকরণ MCQ</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
+
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <link rel="stylesheet" href="assets/quiz-style.css" />
+</head>
+<body>
+  <main class="shell">
+    <section class="card">
+      <header class="hero">
+        <h1>উচ্চতর গণিত ২য় পত্র: বহুপদী ও দ্বিঘাত সমীকরণ</h1>
+        <p>PDF থেকে নেওয়া প্রশ্ন ও উত্তর | ২৫টি MCQ | ২৫ মিনিট</p>
+        <p style="margin-top:10px;">
+          <a href="index.html" style="display:inline-block; text-decoration:none; color:#ffffff; border:1px solid rgba(255,255,255,0.7); border-radius:10px; padding:6px 12px; font-weight:600;">Home</a>
+        </p>
+      </header>
+
+      <div id="start-screen" class="content">
+        <div class="panel">
+          <h2 style="margin:0 0 8px; font-size:1.2rem;">Model Test শুরু করুন</h2>
+          <p class="muted" style="margin:0 0 12px;">মোবাইল-ফ্রেন্ডলি টেস্ট ইন্টারফেস, সাবমিটের পর সাথে সাথে সঠিক-ভুল উত্তর দেখাবে।</p>
+          <button class="btn" type="button" onclick="window.quizApp.startQuiz()">Start Quiz</button>
+        </div>
+      </div>
+
+      <div id="status-bar" class="content status-bar hidden">
+        <div class="timer">সময়: <span id="time">25:00</span></div>
+        <div class="progress"><span id="progress-fill"></span></div>
+      </div>
+
+      <div id="quiz-screen" class="content hidden">
+        <form id="quiz-form">
+          <div id="questions-container"></div>
+          <div class="submit-wrap">
+            <button class="btn secondary" type="button" onclick="window.quizApp.submitQuiz(false)">Submit Quiz</button>
+          </div>
+        </form>
+      </div>
+
+      <div id="result-screen" class="content hidden">
+        <div class="result-box">
+          <div class="score">স্কোর: <span id="score">0</span> / 25</div>
+          <p id="result-message" class="muted" style="margin:8px 0 0;"></p>
+        </div>
+        <div id="review-container"></div>
+        <div class="result-action">
+          <button class="btn" type="button" onclick="location.reload()">আবার দাও</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/quiz-engine.js"></script>
+  <script>
+    const questions = [
+      { q: "$3x^{3}-1=0$ সমীকরণের মূলত্রয় $\\alpha, \\beta, \\gamma$ হলে, $\\alpha^{3}+\\beta^{3}+\\gamma^{3}=?$", opts: ["-1", "0", "$\\frac{1}{3}$", "1"], ans: 3 },
+      { q: "কোনো দ্বিঘাত সমীকরণের একটি মূল $\\frac{1}{2+i}$ হলে সমীকরণটি হবে-", opts: ["$9x^{2}-12x+5=0$", "$5x^{2}-4x+1=0$", "$5x^{2}+4x+1=0$", "$25x^{2}-20x+3=0$"], ans: 1 },
+      { q: "$(p^{2}-4)x^{2}+4px+(4p+1)=0$ সমীকরণের মূলদ্বয় পরস্পর গৌণিক বিপরীত হলে $p$ এর মান কত?", opts: ["-1, 5", "1, 5", "-2, -2", "-3, 1"], ans: 0 },
+      { q: "$ax^{2}+bx+c=0$ সমীকরণের একটি মূল শূন্য হবে যখন-", opts: ["$a=0$", "$b=0$", "$c=0$", "$b=c=0$"], ans: 2 },
+      { q: "$x^{2}-5x+4=0$ সমীকরণের মূলদ্বয়-", opts: ["বাস্তব ও সমান", "বাস্তব ও অসমান", "অমূলদ", "জটিল"], ans: 1 },
+      { q: "নিচের কোনটি বহুপদী রাশি নয়?", opts: ["$ax^{2}+2hxy+by^{2}$", "$2x^{2}+3xy+y^{2}$", "$x^{2}+y^{2}+2gx+2fy+c$", "$2x^{2}+\\frac{3y}{x}+y^{2}$"], ans: 3 },
+      { q: "$x^{2}-5x+6=0$ সমীকরণের মূলদ্বয় $\\gamma, \\delta$ এবং $\\gamma>\\delta$ হলে, $\\gamma-\\delta$ এর মান কত?", opts: ["1", "3", "4", "5"], ans: 0 },
+      { q: "$a_{1}x^{2}+b_{1}x+c_{1}=0$ এবং $a_{2}x^{2}+b_{2}x+c_{2}=0$ সমীকরণের উভয় মূলই সাধারণ হওয়ার শর্ত কোনটি?", opts: ["$a_{1}b_{2}=a_{2}b_{1}$", "$(a_{1}b_{2}-a_{2}b_{1})=(c_{1}a_{2}-c_{2}a_{1})^{2}$", "$a_{1}+a_{2}=b_{1}+b_{2}=c_{1}+c_{2}$", "$\\frac{a_{1}}{a_{2}}=\\frac{b_{1}}{b_{2}}=\\frac{c_{1}}{c_{2}}$"], ans: 3 },
+      { q: "$\\sqrt{-5}-1$ মূলবিশিষ্ট দ্বিঘাত সমীকরণ নিচের কোনটি?", opts: ["$x^{2}+2x+6=0$", "$x^{2}+x+3=0$", "$x^{2}+2x-6=0$", "$x^{2}+x-3=0$"], ans: 0 },
+      { q: "$3x^{2}-5x+1=0$ সমীকরণের মূল $\\alpha$ ও $\\beta$ হলে $\\frac{1}{\\alpha}+\\frac{1}{\\beta}$ এর মান কত?", opts: ["$\\frac{5}{3}$", "$-\\frac{5}{3}$", "5", "-5"], ans: 2 },
+      { q: "$x^{2}+x+1=0$ সমীকরণের মূলদ্বয় $\\alpha, \\beta$ হলে $\\Sigma \\alpha^{2}$ এর মান কত?", opts: ["-3", "-1", "0", "1"], ans: 1 },
+      { q: "বাস্তব সহগবিশিষ্ট দ্বিঘাত সমীকরণের একটি মূল $\\frac{1}{\\sqrt{2}+1}$ হলে অপর মূল কোনটি?", opts: ["$\\sqrt{2}+1$", "$-\\sqrt{2}-1$", "$\\sqrt{2}-1$", "$-\\sqrt{2}+1$"], ans: 1 },
+      { q: "$x^{2}+x+1=0$ সমীকরণের মূলগুলোর প্রকৃতি কীরূপ?", opts: ["বাস্তব ও সমান", "বাস্তব ও অসমান", "অবাস্তব ও অসমান", "অবাস্তব ও সমান"], ans: 2 },
+      { q: "দ্বিঘাত সমীকরণের নিশ্চায়ক ধনাত্মক পূর্ণবর্গ সংখ্যা হলে মূলগুলো হবে-", opts: ["অবাস্তব ও মূলদ", "বাস্তব ও মূলদ", "বাস্তব ও অমূলদ", "অবাস্তব ও অমূলদ"], ans: 1 },
+      { q: "$-i+2$ মূলবিশিষ্ট সমীকরণ কোনটি?", opts: ["$x^{2}-4x+3=0$", "$x^{2}+4x+3=0$", "$x^{2}+4x+5=0$", "$x^{2}-4x+5=0$"], ans: 3 },
+      { q: "$a$ এর কোন মানের জন্য $ax^{2}-x+4=0$ সমীকরণের মূলদ্বয় সমান হবে?", opts: ["$\\frac{1}{16}$", "$-\\frac{1}{16}$", "$\\frac{1}{4}$", "$-\\frac{1}{4}$"], ans: 0 },
+      { q: "$x^{2}-2x-3=0$ সমীকরণের একটি মূল 3 হলে অপর মূল কোনটি?", opts: ["-1", "-2", "-3", "-5"], ans: 0 },
+      { q: "$3x^{2}-9x-5=0$ সমীকরণের মূলদ্বয়ের যোগফল কত?", opts: ["-9", "9", "-3", "3"], ans: 3 },
+      { q: "$2+3i$ মূলবিশিষ্ট দ্বিঘাত সমীকরণ নিচের কোনটি?", opts: ["$x^{2}+4x+13=0$", "$x^{2}-4x+13=0$", "$x^{2}+4x-13=0$", "$x^{2}-4x-13=0$"], ans: 1 },
+      { q: "$2x^{3}-4x^{2}+6x+1=0$ সমীকরণের মূলগুলো $\\alpha, \\beta, \\gamma$ হলে $\\Sigma\\alpha\\beta$ এর মান কোনটি?", opts: ["2", "3", "4", "6"], ans: 1 },
+      { q: "$x^{3}-4x+3=0$ সমীকরণের মূলগুলো $a, b, c$ হলে $\\Sigma a$ এর মান কত হবে?", opts: ["-4", "-3", "0", "4"], ans: 2 },
+      { q: "$x^{2}+x+2=0$ সমীকরণের মূলদ্বয় $\\alpha$ ও $\\beta$ হয় তবে $\\frac{1}{\\alpha}+\\frac{1}{\\beta}$ এর মান কত?", opts: ["-1", "$-\\frac{1}{2}$", "$\\frac{1}{2}$", "2"], ans: 1 },
+      { q: "$3x^{2}-px+4=0$ সমীকরণের একটি মূল অপরটির তিনগুণ হলে $p$ এর মান কত?", opts: ["$\\pm 3$", "$\\pm 2\\sqrt{2}$", "$\\pm 6$", "$\\pm 8$"], ans: 3 },
+      { q: "$4x^{2}+kx+2=0$ সমীকরণের একটি মূল 2 হলে, $k$ এর মান কত?", opts: ["-5", "-18", "-9", "-10"], ans: 2 },
+      { q: "$2+i$ মূলবিশিষ্ট দ্বিঘাত সমীকরণ কোনটি?", opts: ["$x^{2}-4x+5=0$", "$x^{2}+4x-3=0$", "$x^{2}-4x+3=0$", "$x^{2}+4x-5=0$"], ans: 0 }
+    ];
+
+    window.quizApp = createQuizApp({
+      questions: questions,
+      timeMinutes: 25
+    });
+  </script>
+</body>
+</html>

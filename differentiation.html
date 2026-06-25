@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>উচ্চতর গণিত: অন্তরীকরণ MCQ</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
+
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <link rel="stylesheet" href="assets/quiz-style.css" />
+</head>
+<body>
+  <main class="shell">
+    <section class="card">
+      <header class="hero">
+        <h1>উচ্চতর গণিত ১ম পত্র: অন্তরীকরণ</h1>
+        <p>PDF থেকে নেওয়া প্রশ্ন ও উত্তর | ২৫টি MCQ | ২৫ মিনিট</p>
+        <p style="margin-top:10px;">
+          <a href="index.html" style="display:inline-block; text-decoration:none; color:#ffffff; border:1px solid rgba(255,255,255,0.7); border-radius:10px; padding:6px 12px; font-weight:600;">Home</a>
+        </p>
+      </header>
+
+      <div id="start-screen" class="content">
+        <div class="panel">
+          <h2 style="margin:0 0 8px; font-size:1.2rem;">Model Test শুরু করুন</h2>
+          <p class="muted" style="margin:0 0 12px;">মোবাইল-ফ্রেন্ডলি টেস্ট ইন্টারফেস, সাবমিটের পর সাথে সাথে সঠিক-ভুল উত্তর দেখাবে।</p>
+          <button class="btn" type="button" onclick="window.quizApp.startQuiz()">Start Quiz</button>
+        </div>
+      </div>
+
+      <div id="status-bar" class="content status-bar hidden">
+        <div class="timer">সময়: <span id="time">25:00</span></div>
+        <div class="progress"><span id="progress-fill"></span></div>
+      </div>
+
+      <div id="quiz-screen" class="content hidden">
+        <form id="quiz-form">
+          <div id="questions-container"></div>
+          <div class="submit-wrap">
+            <button class="btn secondary" type="button" onclick="window.quizApp.submitQuiz(false)">Submit Quiz</button>
+          </div>
+        </form>
+      </div>
+
+      <div id="result-screen" class="content hidden">
+        <div class="result-box">
+          <div class="score">স্কোর: <span id="score">0</span> / 25</div>
+          <p id="result-message" class="muted" style="margin:8px 0 0;"></p>
+        </div>
+        <div id="review-container"></div>
+        <div class="result-action">
+          <button class="btn" type="button" onclick="location.reload()">আবার দাও</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/quiz-engine.js"></script>
+  <script>
+    const questions = [
+      { q: "x এর সাপেক্ষে $e^{\\sin^{2}x}$ এর অন্তরজ কোনটি?", opts: ["$e^{\\sin^{2}x}\\sin 2x$", "$2 e^{\\sin^{2}x}\\sin x$", "$-e^{\\sin^{2}x}\\sin 2x$", "$e^{\\sin^{2}x}$"], ans: 0 },
+      { q: "$y=ax(1-x)$ বক্ররেখাটির মূলবিন্দুতে ঢাল কত?", opts: ["-a", "a", "$a-2ax$", "$a+2ax$"], ans: 1 },
+      { q: "$\\frac{d}{dx}(\\log_{10}x)$ এর মান কোনটি?", opts: ["$\\frac{1}{x}$", "$\\frac{1}{x}\\log_{10}e$", "$\\frac{1}{x}\\log_{e}10$", "$\\log_{10}e$"], ans: 1 },
+      { q: "$\\lim_{x\\to\\infty}\\frac{2x^{2}+6x+7}{3x^{2}-4x+3}$ এর মান-", opts: ["$-\\frac{5}{6}$", "$-\\frac{2}{3}$", "$\\frac{2}{3}$", "$\\frac{3}{5}$"], ans: 2 },
+      { q: "$y=x^{3}-8x^{2}+7$ বক্ররেখার $(1,1)$ বিন্দুতে অভিলম্বের সমীকরণ কোনটি?", opts: ["$13x-y+12=0$", "$13x+y+12=0$", "$x+13y+12=0$", "$x-13y+12=0$"], ans: 3 },
+      { q: "$\\lim_{x\\to 0}\\frac{\\tan bx}{\\sin ax}$ এর মান কত?", opts: ["$\\frac{a}{b}$", "ab", "$\\frac{b}{a}$", "$ab^{2}$"], ans: 2 },
+      { q: "$\\sec^{-1}\\left(\\frac{1+x^{2}}{1-x^{2}}\\right)$ এর অন্তরক সহগ কত?", opts: ["$\\frac{1}{x\\sqrt{x^{2}-1}}$", "$\\frac{-2}{\\sqrt{1-x^{2}}}$", "$\\frac{1}{1+x^{2}}$", "$\\frac{2}{1+x^{2}}$"], ans: 3 },
+      { q: "$\\cos (ax + b)$ এর n-তম অন্তরক সহগ কত?", opts: ["$(-1)^{n}a^{n}\\sin\\left(\\frac{n\\pi}{2}+ax+b\\right)$", "$a^{n}\\sin\\left(\\frac{n\\pi}{2}+ax+b\\right)$", "$\\cos\\left(\\frac{n\\pi}{2}+ax+b\\right)$", "$a^{n}\\cos\\left(\\frac{n\\pi}{2}+ax+b\\right)$"], ans: 3 },
+      { q: "$x^{2}+y^{2}=20$ বৃত্তের $(2,4)$ বিন্দুতে স্পর্শকের সমীকরণ কোনটি?", opts: ["$x+2y+10=0$", "$x+2y=10$", "$2x+y-10=0$", "$2x-y-10=0$"], ans: 1 },
+      { q: "দূরত্ব, $S = 5t^{3} - 9t^{2} + 3t + 2$ হলে $t = 4$ সময় পর বেগ কত একক হবে?", opts: ["71", "171", "243", "343"], ans: 1 },
+      { q: "$\\lim_{x\\to 0}\\frac{e^{2x}-1}{2x}$ এর মান কত?", opts: ["-1", "2", "1", "$\\frac{1}{2}$"], ans: 2 },
+      { q: "$y=\\frac{2}{3x}$ হলে $y_{3}$ এর মান কত?", opts: ["$-\\frac{4}{x^{4}}$", "$\\frac{4}{x^{4}}$", "$4x^{4}$", "$-4x^{4}$"], ans: 0 },
+      { q: "$y=\\sin^{2}x^{2}$ হলে $\\frac{dy}{dx}$ এর মান কত?", opts: ["$2 \\sin x^{2}$", "$2x \\sin x^{2}$", "$2x \\sin 2x^{2}$", "$2x^{2}\\sin 2x^{2}$"], ans: 2 },
+      { q: "$f(x) = x(2a - x)$ এর সর্বোচ্চ মান কোনটি?", opts: ["a", "2a", "$a^{2}$", "$2a^{2}$"], ans: 2 },
+      { q: "$y^{2} = x$ হলে $y_{1}$ নিচের কোনটি?", opts: ["2y", "2x", "$2\\sqrt{x}$", "$\\frac{1}{2\\sqrt{x}}$"], ans: 3 },
+      { q: "$\\lim_{x\\to 0}\\frac{\\tan^{-1}2x}{3x}$ এর মান কত?", opts: ["0", "$\\frac{1}{3}$", "$\\frac{2}{3}$", "1"], ans: 2 },
+      { q: "$\\frac{d}{dx}(\\text{cosec}^{-1}x)$ এর মান কোনটি?", opts: ["$\\frac{1}{x\\sqrt{1-x^{2}}}$", "$\\frac{-1}{x\\sqrt{x^{2}-1}}$", "$\\frac{1}{x\\sqrt{x^{2}-1}}$", "$\\frac{-1}{x\\sqrt{1-x^{2}}}$"], ans: 1 },
+      { q: "$\\frac{d}{dx}(2^{x}) = ?$", opts: ["$x2^{x-1}$", "$x2^{x+1}$", "$2 \\ln x$", "$2^{x}\\ln 2$"], ans: 3 },
+      { q: "$\\frac{d^{10}}{dx^{10}}(x^{10})$ এর মান কত?", opts: ["10!", "10!.x", "$10!.x^{2}$", "0"], ans: 0 },
+      { q: "$\\lim_{x\\to 0}(1+2x)^{\\frac{1}{2x}} = ?$", opts: ["0", "1", "e", "$e^{2}$"], ans: 2 },
+      { q: "$x$-এর সাপেক্ষে $\\ln ax$ এর অন্তরজ কোনটি?", opts: ["$\\frac{1}{x}$", "$\\frac{a}{x}$", "$\\frac{x}{a}$", "$\\frac{1}{ax}$"], ans: 0 },
+      { q: "$x$-এর সাপেক্ষে $\\tan^{-1}3x$ এর অন্তরজ কোনটি?", opts: ["$\\frac{1}{1+3x^{2}}$", "$\\frac{3}{1+3x^{2}}$", "$\\frac{1}{1+9x^{2}}$", "$\\frac{3}{1+9x^{2}}$"], ans: 3 },
+      { q: "$\\frac{d}{dx}(x^{-9}) = ?$", opts: ["$-9x^{-8}$", "$-\\frac{1}{9}x^{-10}$", "$-9x^{-10}$", "$-\\frac{1}{8}x^{-8}$"], ans: 2 },
+      { q: "$y = e^{-\\frac{3}{2}x}$ হলে $\\frac{dy}{dx} = ?$", opts: ["$-\\frac{3}{2}e^{-\\frac{3x}{2}}$", "$\\frac{3}{2}e^{-\\frac{3x}{2}}$", "$\\frac{2}{3}e^{-\\frac{3x}{2}}$", "$-\\frac{2}{3}e^{-\\frac{3x}{2}}$"], ans: 0 },
+      { q: "$y = x^{2} - 3x + 1$ বক্ররেখার $(3,1)$ বিন্দুতে অভিলম্বের ঢাল কত?", opts: ["3", "$\\frac{1}{3}$", "$-\\frac{1}{3}$", "-3"], ans: 2 }
+    ];
+
+    window.quizApp = createQuizApp({
+      questions: questions,
+      timeMinutes: 25
+    });
+  </script>
+</body>
+</html>
