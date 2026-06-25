@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>উচ্চতর গণিত: জটিল সংখ্যা MCQ</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
+
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <link rel="stylesheet" href="assets/quiz-style.css" />
+</head>
+<body>
+  <main class="shell">
+    <section class="card">
+      <header class="hero">
+        <h1>উচ্চতর গণিত ১ম পত্র: জটিল সংখ্যা</h1>
+        <p>PDF থেকে নেওয়া প্রশ্ন ও উত্তর | ২৫টি MCQ | ২৫ মিনিট</p>
+        <p style="margin-top:10px;">
+          <a href="index.html" style="display:inline-block; text-decoration:none; color:#ffffff; border:1px solid rgba(255,255,255,0.7); border-radius:10px; padding:6px 12px; font-weight:600;">Home</a>
+        </p>
+      </header>
+
+      <div id="start-screen" class="content">
+        <div class="panel">
+          <h2 style="margin:0 0 8px; font-size:1.2rem;">Model Test শুরু করুন</h2>
+          <p class="muted" style="margin:0 0 12px;">মোবাইল-ফ্রেন্ডলি টেস্ট ইন্টারফেস, সাবমিটের পর সাথে সাথে সঠিক-ভুল উত্তর দেখাবে।</p>
+          <button class="btn" type="button" onclick="window.quizApp.startQuiz()">Start Quiz</button>
+        </div>
+      </div>
+
+      <div id="status-bar" class="content status-bar hidden">
+        <div class="timer">সময়: <span id="time">25:00</span></div>
+        <div class="progress"><span id="progress-fill"></span></div>
+      </div>
+
+      <div id="quiz-screen" class="content hidden">
+        <form id="quiz-form">
+          <div id="questions-container"></div>
+          <div class="submit-wrap">
+            <button class="btn secondary" type="button" onclick="window.quizApp.submitQuiz(false)">Submit Quiz</button>
+          </div>
+        </form>
+      </div>
+
+      <div id="result-screen" class="content hidden">
+        <div class="result-box">
+          <div class="score">স্কোর: <span id="score">0</span> / 25</div>
+          <p id="result-message" class="muted" style="margin:8px 0 0;"></p>
+        </div>
+        <div id="review-container"></div>
+        <div class="result-action">
+          <button class="btn" type="button" onclick="location.reload()">আবার দাও</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/quiz-engine.js"></script>
+  <script>
+    const questions = [
+      { q: "$z_{1}=1+2i$ এবং $z_{2}=3+i$ হলে $\\overline{z_{1}}-z_{2}$ এর মডুলাস হল-", opts: ["$\\sqrt{5}$", "$\\sqrt{13}$", "$\\sqrt{25}$", "$5\\sqrt{2}$"], ans: 1 },
+      { q: "$z=1-i$ হলে $z-\\overline{z}$ এর বর্গমূল কত?", opts: ["$-1-i$", "$\\pm(1+i)$", "$\\pm(1-i)$", "$\\pm\\frac{1}{\\sqrt{2}}(1-i)$"], ans: 2 },
+      { q: "$1-\\sqrt{3}i$ এর মুখ্য আর্গুমেন্ট কত?", opts: ["$\\frac{2\\pi}{3}$", "$\\frac{\\pi}{3}$", "$-\\frac{2\\pi}{3}$", "$-\\frac{\\pi}{3}$"], ans: 2 },
+      { q: "$\\sqrt[4]{-49}$ এর মান কোনটি?", opts: ["$\\pm\\sqrt{7}i$", "$\\pm\\sqrt{\\frac{7}{2}}(1\\pm i)$", "$\\pm\\frac{7}{2}(1\\pm i)$", "$\\frac{7}{\\sqrt{2}}(1\\pm 2i)$"], ans: 1 },
+      { q: "$\\frac{-i-i^{-5}}{2i^{-5}+i}$ এর মান-", opts: ["-2", "0", "$\\frac{1}{2}$", "2"], ans: 1 },
+      { q: "$-i$ এর মডুলাস ও আর্গুমেন্ট-", opts: ["$1$ ও $0$", "$1$ ও $-\\frac{\\pi}{2}$", "$1$ ও $\\pi$", "$1$ ও $\\frac{\\pi}{2}$"], ans: 1 },
+      { q: "$\\omega$ এককের একটি জটিল ঘনমূল হলে, $\\frac{2}{\\omega^{13}+\\omega^{26}}$ এর মান-", opts: ["-2", "-1", "0", "2"], ans: 0 },
+      { q: "$x+iy=i^{-2021}+2(\\omega)^{-2019}$ হলে $\\frac{y}{x}=?$", opts: ["$\\frac{1}{2}$", "$-\\frac{1}{2}$", "2", "-2"], ans: 1 },
+      { q: "$-1-i\\sqrt{3}$ এর অনুবন্ধী রাশির আর্গুমেন্ট কত?", opts: ["$-\\frac{\\pi}{3}$", "$\\frac{\\pi}{3}$", "$-\\frac{2\\pi}{3}$", "$\\frac{2\\pi}{3}$"], ans: 3 },
+      { q: "$\\sqrt{-3}\\times\\sqrt{-1}$ এর মান কোনটি?", opts: ["$\\sqrt{3}i$", "$\\pm\\sqrt{3}$", "$-\\sqrt{3}$", "$\\sqrt{3}$"], ans: 2 },
+      { q: "$n\\in\\mathbb{N}$ হলে $i^{8n+5}$ এর মান কত?", opts: ["1", "-1", "i", "-i"], ans: 2 },
+      { q: "$x=\\frac{1}{2}(-1+\\sqrt{-3})$ এবং $y=\\frac{1}{2}(-1-\\sqrt{-3})$ হলে $1-x-y+xy$ এর মান কত?", opts: ["-2", "2", "0", "3"], ans: 3 },
+      { q: "$z=x+iy$, $|z|=5$ সমীকরণটি প্রকাশ করে-", opts: ["সরলরেখা", "বৃত্ত", "পরাবৃত্ত", "উপবৃত্ত"], ans: 1 },
+      { q: "$i^{2}=-1$ হলে $i^{-39}$ এর মান-", opts: ["-1", "1", "-i", "i"], ans: 3 },
+      { q: "একটি দ্বিঘাত সমীকরণের একটি মূল $\\frac{1}{1+i}$ হলে অপর মূলটি কত?", opts: ["$\\frac{1}{1-i}$", "$\\frac{1-i}{2}$", "$\\frac{1+i}{2}$", "$1-i$"], ans: 2 },
+      { q: "$-1+i$ এর পোলার আকার-", opts: ["$\\sqrt{2}\\left(\\cos\\frac{\\pi}{4}+i\\sin\\frac{\\pi}{4}\\right)$", "$\\sqrt{2}\\left(\\cos\\frac{\\pi}{4}-i\\sin\\frac{\\pi}{4}\\right)$", "$\\sqrt{2}\\left(\\cos\\frac{3\\pi}{4}-i\\sin\\frac{3\\pi}{4}\\right)$", "$\\sqrt{2}\\left(\\cos\\frac{3\\pi}{4}+i\\sin\\frac{3\\pi}{4}\\right)$"], ans: 3 },
+      { q: "$i^{7}+i^{9}+i^{11}+i^{13}$ এর মান কত?", opts: ["-1", "1", "-i", "0"], ans: 3 },
+      { q: "$x=1+\\sqrt{2}i$ হলে $2x^{3}-3x^{2}+4x+1$ এর মান কত?", opts: ["4", "2", "1", "-2"], ans: 3 },
+      { q: "$z=2x+i3y$; $x$ ও $y$ বাস্তব সংখ্যা হলে $|z|=1$ দ্বারা কি নির্দেশিত হয়?", opts: ["বৃত্ত", "উপবৃত্ত", "পরাবৃত্ত", "অধিবৃত্ত"], ans: 1 },
+      { q: "$z=x-2iy$ হলে, $z\\overline{z}=7$ এর সঞ্চারপথ একটি-", opts: ["পরাবৃত্ত", "উপবৃত্ত", "বৃত্ত", "অধিবৃত্ত"], ans: 1 },
+      { q: "$2i$ এর বর্গমূল কত?", opts: ["$2+i$", "$-(1+i)$", "$\\pm(1+i)$", "$\\pm(1-i)$"], ans: 2 },
+      { q: "$\\frac{2+3i}{2-i}=A+iB$ এবং $A$ ও $B$ বাস্তব সংখ্যা হয়, তবে $B = ?$", opts: ["$\\frac{-8}{5}$", "$\\frac{1}{5}$", "$-\\frac{1}{5}$", "$\\frac{8}{5}$"], ans: 3 },
+      { q: "$(2i)^{-1/2}+(-2i)^{-1/2}$ এর মান কত?", opts: ["$\\frac{1}{2}$", "1", "0", "2"], ans: 1 },
+      { q: "$p=x+iy$ হলে, $|p+2|=3$ নির্দেশ করে-", opts: ["বৃত্ত", "সরলরেখা", "প্যারাবোলা", "উপবৃত্ত"], ans: 0 },
+      { q: "$i^{m}+i^{m+1}+i^{m+2}+i^{m+3} = ?$ $[m\\in\\mathbb{Z}]$", opts: ["-1", "-i", "0", "i"], ans: 2 }
+    ];
+
+    window.quizApp = createQuizApp({
+      questions: questions,
+      timeMinutes: 25
+    });
+  </script>
+</body>
+</html>
