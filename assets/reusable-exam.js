@@ -10,6 +10,7 @@
     loaderMilliseconds: 3000,
     positiveMark: 1,
     negativeMark: 0.25,
+    enablePdf: true,
     pdfFilename: 'MCQ_Exam_Result.pdf',
     pdfFooter: 'MCQ Exam Result',
     ...window.EXAM_CONFIG
@@ -86,10 +87,10 @@
           <div class="stat"><b data-stat="double">০</b><small>দ্বৈত উত্তর</small></div>
           <div class="stat"><b data-stat="empty">০</b><small>অনুত্তরিত</small></div>
         </div>
-        <div class="pdf-download" data-html2canvas-ignore="true">
+        ${config.enablePdf ? `<div class="pdf-download" data-html2canvas-ignore="true">
           <span id="pdfStatus">PDF ফলাফল তৈরি হচ্ছে...</span>
           <button type="button" id="pdfDownloadBtn" disabled>PDF ডাউনলোড</button>
-        </div>
+        </div>` : ''}
       </section>`);
 
     document.body.insertAdjacentHTML('afterbegin', `
@@ -251,6 +252,7 @@
   }
 
   async function generateResultPdf(autoDownload = true) {
+    if (!config.enablePdf) return;
     if (pdfGenerating) return;
     if (pdfResult) {
       if (autoDownload) pdfResult.download();
@@ -366,8 +368,8 @@
     if (reason === 'reload') setTimeout(() => showToast('Reload করার কারণে পরীক্ষা স্বয়ংক্রিয়ভাবে জমা হয়েছে'), 450);
     else if (isAutomatic) setTimeout(() => showToast('সময় শেষ—পরীক্ষা স্বয়ংক্রিয়ভাবে জমা হয়েছে'), 450);
 
-    if (shouldDownloadPdf) setTimeout(() => generateResultPdf(true), 700);
-    else {
+    if (config.enablePdf && shouldDownloadPdf) setTimeout(() => generateResultPdf(true), 700);
+    else if (config.enablePdf) {
       pdfStatus.textContent = 'আগের জমা দেওয়া ফলাফল পুনরুদ্ধার হয়েছে';
       pdfDownloadBtn.textContent = 'PDF ডাউনলোড';
       pdfDownloadBtn.disabled = false;
@@ -375,7 +377,7 @@
   }
 
   submitBtn.addEventListener('click', () => beginSubmission(false, 'manual'));
-  pdfDownloadBtn.addEventListener('click', () => pdfResult ? pdfResult.download() : generateResultPdf(true));
+  pdfDownloadBtn?.addEventListener('click', () => pdfResult ? pdfResult.download() : generateResultPdf(true));
   startExamBtn.addEventListener('click', () => {
     if (examStarted) return;
     examStarted = true;
